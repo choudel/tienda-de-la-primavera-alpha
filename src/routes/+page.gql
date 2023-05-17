@@ -1,0 +1,8 @@
+query Items {
+  items{
+    nodes {
+    id
+    ...ItemInfo 
+    }
+  }
+}
