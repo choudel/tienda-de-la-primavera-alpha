@@ -1,12 +1,13 @@
 <script lang="ts">
-  import Nav from "../lib/nav.svelte";
-  import Title from "../lib/title.svelte";
-  import Search from "../lib/search.svelte";
   import Card from "../lib/card.svelte";
   import Footer from "../lib/footer.svelte";
-  import type { Items } from "$houdini";
+  import Nav from "../lib/nav.svelte";
+  import Search from "../lib/search.svelte";
+  import Title from "../lib/title.svelte";
+  import type { PageData } from "./$houdini";
   /* @type { import('./$houdini').PageData } */
-  export let data: Items;
+
+  export let data: PageData;
 
   $: ({ Items } = data);
 </script>
@@ -30,7 +31,7 @@
         <img src="Polygon-up.svg" alt="up" />
       </div>
     </div>
-    <Card item={$Items.data.items.nodes} />
+    <Card items={$Items.data?.items} />
     <div class="card">
       <h1>Click to view all products</h1>
     </div>
