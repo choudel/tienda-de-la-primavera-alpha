@@ -2,6 +2,10 @@ query Items {
   items{
     nodes {
     id
+    image 
+    item
+    sellText
+    price
     ...ItemInfo 
     }
   }

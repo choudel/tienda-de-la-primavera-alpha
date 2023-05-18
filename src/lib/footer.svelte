@@ -4,6 +4,7 @@
 
 <style lang="scss">
   * {
+    color: #004242;
     font-family: "Montserrat Alternates Regular";
     font-style: normal;
     font-weight: 700;

@@ -67,24 +67,24 @@
           class="second_accordion__input"
           type="radio"
           name="second_accordion"
-          id="services"
-          value="ser"
+          id="page_1"
+          value="pag1"
           bind:group={selected}
-          on:click={selected != "ser" || !toggle
+          on:click={selected != "pag1" || !toggle
             ? () => (toggle = true)
             : () => (toggle = !toggle)}
         />
-        <label class="second_accordion__label" for="services" id="services_id"
+        <label class="second_accordion__label" for="page_1" id="page_1_id"
           >page_1</label
         >
 
         <div
           class="second_accordion__content"
-          id="services__content"
+          id="page_1__content"
           class:toggle={!toggle}
         >
           {#if toggle}
-            <div class="sub_services">
+            <div class="sub_page_1">
               {#each page_1 as detail}
                 <a href="/">{detail}</a>
               {/each}
@@ -96,24 +96,24 @@
           class="second_accordion__input"
           type="radio"
           name="second_accordion"
-          id="mentors"
+          id="page_2"
           value="tor"
           bind:group={selected}
           on:click={selected != "tor" || !toggle
             ? () => (toggle = true)
             : () => (toggle = !toggle)}
         />
-        <label class="second_accordion__label" for="mentors" id="mentors_id"
+        <label class="second_accordion__label" for="page_2" id="page_2_id"
           >page_2</label
         >
 
         <div
           class="second_accordion__content"
-          id="mentors__content"
+          id="page_2__content"
           class:toggle={!toggle}
         >
           {#if toggle}
-            <div class="sub_mentors">
+            <div class="sub_page_2">
               {#each page_2 as detail}
                 <a href="/">{detail}</a>
               {/each}
@@ -125,24 +125,24 @@
           class="second_accordion__input"
           type="radio"
           name="second_accordion"
-          id="mentees"
+          id="page_3"
           value="tee"
           bind:group={selected}
           on:click={selected != "tee" || !toggle
             ? () => (toggle = true)
             : () => (toggle = !toggle)}
         />
-        <label class="second_accordion__label" for="mentees" id="mentees_id"
+        <label class="second_accordion__label" for="page_3" id="page_3_id"
           >page_3</label
         >
 
         <div
           class="second_accordion__content"
-          id="mentees__content"
+          id="page_3__content"
           class:toggle={!toggle}
         >
           {#if toggle}
-            <div class="sub_mentees">
+            <div class="sub_page_3">
               {#each page_3 as detail}
                 <a href="/">{detail}</a>
               {/each}
@@ -154,26 +154,24 @@
           class="second_accordion__input"
           type="radio"
           name="second_accordion"
-          id="certifications"
-          value="cer"
+          id="page_4"
+          value="pag4"
           bind:group={selected}
-          on:click={selected != "cer" || !toggle
+          on:click={selected != "pag4" || !toggle
             ? () => (toggle = true)
             : () => (toggle = !toggle)}
         />
-        <label
-          class="second_accordion__label"
-          for="certifications"
-          id="certifications_id">page_4</label
+        <label class="second_accordion__label" for="page_4" id="page_4_id"
+          >page_4</label
         >
 
         <div
           class="second_accordion__content"
-          id="certifications__content"
+          id="page_4__content"
           class:toggle={!toggle}
         >
           {#if toggle}
-            <div class="sub_certifications">
+            <div class="sub_page_4">
               {#each page_4 as detail}
                 <a href="/">{detail}</a>
               {/each}
@@ -198,12 +196,12 @@
   $shadow: #ddffbb20;
   @font-face {
     font-family: "Montserrat Alternates Regular";
-    src: url("MontserratAlternates-Regular.ttf");
+    src: url("/fonts/MontserratAlternates-Regular.ttf");
     font-display: swap;
   }
   @font-face {
     font-family: "Montserrat Alternates Bold";
-    src: url("MontserratAlternates-Bold.ttf");
+    src: url("/fonts/MontserratAlternates-Bold.ttf");
     font-display: swap;
   }
   * {
@@ -330,25 +328,25 @@
     border-radius: 32px;
     display: grid;
     grid-template-areas:
-      "logo home services mentor mentee certif blog . login "
-      "ser ser ser ser ser ser ser ser ser"
-      "tors tors tors tors tors tors tors tors tors"
-      "tees tees tees tees tees tees tees tees tees"
-      "cer cer cer cer cer cer cer cer cer";
+      "logo home page_1 page_2 page_3 page_4 blog . login "
+      "pag1 pag1 pag1 pag1 pag1 pag1 pag1 pag1 pag1"
+      "pag2 pag2 pag2 pag2 pag2 pag2 pag2 pag2 pag2"
+      "pag3 pag3 pag3 pag3 pag3 pag3 pag3 pag3 pag3"
+      "pag4 pag4 pag4 pag4 pag4 pag4 pag4 pag4 pag4";
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr auto 1fr;
     @media only screen and (max-width: $break) {
       grid-template-areas:
         "logo"
         "login"
         "home"
-        "services"
-        "ser"
-        "mentor"
-        "tors"
-        "mentee"
-        "tees"
-        "certif"
-        "cer"
+        "page_1"
+        "pag1"
+        "page_2"
+        "pag2"
+        "page_3"
+        "pag3"
+        "page_4"
+        "pag4"
         "blog";
       grid-template-columns: auto;
       border-radius: 0 0 32px 32px;
@@ -439,20 +437,20 @@
       min-height: 56px;
     }
   }
-  #services {
-    &:checked ~ #services__content {
+  #page_1 {
+    &:checked ~ #page_1__content {
       display: grid;
     }
     @media only screen and (max-width: $break) {
       display: none;
-      &:checked ~ #services__content {
+      &:checked ~ #page_1__content {
         display: grid;
       }
     }
   }
-  #services_id {
+  #page_1_id {
     display: grid;
-    grid-area: services;
+    grid-area: page_1;
     min-height: $height;
     align-items: center;
     justify-items: center;
@@ -464,27 +462,27 @@
       min-height: 56px;
     }
   }
-  #services__content {
-    grid-area: ser;
+  #page_1__content {
+    grid-area: pag1;
   }
-  .sub_services {
+  .sub_page_1 {
     background-color: var(--color3);
   }
 
-  #mentors {
-    &:checked ~ #mentors__content {
+  #page_2 {
+    &:checked ~ #page_2__content {
       display: grid;
     }
     @media only screen and (max-width: $break) {
       display: none;
-      &:checked ~ #mentors__content {
+      &:checked ~ #page_2__content {
         display: grid;
       }
     }
   }
-  #mentors_id {
+  #page_2_id {
     display: grid;
-    grid-area: mentor;
+    grid-area: page_2;
     min-height: $height;
     align-items: center;
     justify-items: center;
@@ -496,26 +494,26 @@
       min-height: 56px;
     }
   }
-  #mentors__content {
-    grid-area: tors;
+  #page_2__content {
+    grid-area: pag2;
   }
-  .sub_mentors {
+  .sub_page_2 {
     background-color: var(--color3);
   }
-  #mentees {
-    &:checked ~ #mentees__content {
+  #page_3 {
+    &:checked ~ #page_3__content {
       display: grid;
     }
     @media only screen and (max-width: $break) {
       display: none;
-      &:checked ~ #mentees__content {
+      &:checked ~ #page_3__content {
         display: grid;
       }
     }
   }
-  #mentees_id {
+  #page_3_id {
     display: grid;
-    grid-area: mentee;
+    grid-area: page_3;
     min-height: $height;
     align-items: center;
     justify-items: center;
@@ -527,28 +525,28 @@
       min-height: 56px;
     }
   }
-  #mentees__content {
-    grid-area: tees;
+  #page_3__content {
+    grid-area: pag3;
   }
-  .sub_mentees {
+  .sub_page_3 {
     background-color: var(--color3);
   }
-  #certifications {
-    &:checked ~ #certifications__content {
+  #page_4 {
+    &:checked ~ #page_4__content {
       display: grid;
     }
     @media only screen and (max-width: $break) {
       display: none;
-      &:checked ~ #certifications__content {
+      &:checked ~ #page_4__content {
         display: grid;
       }
     }
   }
-  #certifications_id {
+  #page_4_id {
     padding-right: 8px;
     padding-left: 18px;
     display: grid;
-    grid-area: certif;
+    grid-area: page_4;
     max-width: 140px;
     min-height: $height;
     align-items: center;
@@ -562,10 +560,10 @@
       min-height: 56px;
     }
   }
-  #certifications__content {
-    grid-area: cer;
+  #page_4__content {
+    grid-area: pag4;
   }
-  .sub_certifications {
+  .sub_page_4 {
     background-color: var(--color3);
   }
   .blog {
