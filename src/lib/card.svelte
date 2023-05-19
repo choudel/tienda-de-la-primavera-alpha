@@ -1,27 +1,28 @@
 <script lang="ts">
-  import { fragment, graphql, type ItemInfo } from "$houdini";
+  import { fragment, graphql, type ItemsConnection } from "$houdini";
 
-  export let item: ItemInfo;
+  export let items: ItemsConnection;
 
   $: stuff = fragment(
-    item,
+    items,
     graphql(`
-      fragment ItemInfo on Item {
-        id
-        image
-        item
-        price
-        sellText
+      fragment ItemsConnection on ItemsConnection {
+        nodes {
+          image
+          item
+          price
+          sellText
+        }
       }
     `)
   );
-  $: console.log($stuff);
+  $: console.log("stuff", $stuff);
 </script>
 
-{#if $stuff.fetching}
+{#if $stuff?.nodes === null}
   <p>Loading...</p>
 {:else}
-  {#each $stuff as node}
+  {#each $stuff?.nodes ?? [] as node}
     <div class="card">
       <div class="item-pic">
         <img src={node.image} alt="bag" />
