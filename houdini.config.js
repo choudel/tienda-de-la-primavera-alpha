@@ -11,7 +11,10 @@ const config = {
     "scalars": {
         "BigFloat": {
           "type": "number"
-        }
+        },
+        Jwt: {                
+            type: "string"  
+          }
     },
     
 }
